@@ -14,10 +14,13 @@
     <a href="bmi.php">重新測量</a>
     <br>
     <?php
-    // $height = $_GET['height']; //標單陣列
-    // $weight = $_GET['weight']; //標單陣列
-    $height = $_POST['height']; //標單陣列
-    $weight = $_POST['weight']; //標單陣列
+    if(!empty($_GET)){
+        $height = $_GET['height']; //標單陣列
+        $weight = $_GET['weight']; //標單陣列
+    }else{
+        $height = $_POST['height']; //標單陣列
+        $weight = $_POST['weight']; //標單陣列
+    }
     echo "<br>";
     $bmi = round($weight / (($height / 100) * ($height / 100)), 1);
     echo "您的身高為" . $height . "<br>";

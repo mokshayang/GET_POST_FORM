@@ -10,7 +10,7 @@
     <a href="index.php">回首頁</a>
     <br>
     <h1>BMI計算</h1>
-    <!-- <a href="result.php?height=180&weight=80">我的資料</a> -->
+    <a href="result.php?height=180&weight=80">我的資料</a>
     <form action="result.php" method="post" autocomplete="off">
         <div>身高: <input type="munber" name="height" size="5"> cm</div>
         <div>體重: <input type="munber" name="weight" size="5"> m</div>
