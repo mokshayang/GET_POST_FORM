@@ -17,9 +17,13 @@
     if(!empty($_GET)){
         $height = $_GET['height']; //標單陣列
         $weight = $_GET['weight']; //標單陣列
-    }else{
+    }else if(!empty($_POST)){
         $height = $_POST['height']; //標單陣列
         $weight = $_POST['weight']; //標單陣列
+    }else{
+        echo "資料輸入錯誤，請回表單重新輸入";
+        echo "<a href='bmi.php'>回表單</a>";
+        exit();
     }
     echo "<br>";
     $bmi = round($weight / (($height / 100) * ($height / 100)), 1);
