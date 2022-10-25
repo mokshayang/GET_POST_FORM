@@ -74,7 +74,7 @@
           
         }
         table{
-            width: 40%;
+            width: 36%;
             margin: 3.2rem auto;
             font-size: 2.4rem;
         }
@@ -108,6 +108,7 @@
 
 <body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
     <?php
+    date_default_timezone_set("Asia/Taipei");
     $cal = [];
     $year =  (isset($_GET['y'])) ? $_GET['y'] : date("Y");
     $month = (isset($_GET['m'])) ? $_GET['m'] : date("n");
