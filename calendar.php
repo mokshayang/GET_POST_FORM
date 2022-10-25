@@ -9,6 +9,8 @@
     <style>
         html{
             font-size: 10px;
+
+            font-family: "微軟正黑體";
         }
         *{
             box-sizing: border-box;
@@ -16,7 +18,7 @@
         }
 
         .catlog {
-            width: 48%;
+            width: 42%;
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
             align-items: center;
@@ -24,6 +26,8 @@
         }
         .catlog div{
             font-size: 2.8rem;
+            font-weight: bold;
+            text-shadow:  0.1rem 0.1rem 0.2rem #333;
         }
 
         .left, .right {
@@ -41,6 +45,8 @@
             text-align: center;
             background: linear-gradient(to left, blue, #ccf);
             border: 0.1rem solid blue;;
+            box-sizing: content-box;
+            text-align: center;
         }
         .right{
             background: linear-gradient(to right, blue, #ccf);
@@ -49,25 +55,38 @@
         .left:hover{
             background: linear-gradient(to left, #99f, blue);
             font-size: 28px;
+            transform: scale(1.02);
         }
         .right:hover{
             background: linear-gradient(to right, #99f, blue);
             font-size: 28px;
+            transform: scale(1.0);
         }
         .catlog a:active{
-        box-shadow:inset 0.1rem 0.1rem 0.1rem 0rem #006 ;
+        box-shadow:inset 0.1rem 0.1rem 0.1rem 0rem #336 ;
+        transform: scale(1);
+        border: 0.1rem solid #00a;
+        box-sizing: border-box;
+        
         }
         .left:active{
-            box-shadow:inset -0.1rem 0.1rem 0.1rem 0rem #206 ;
+            box-shadow:inset -0.1rem 0.1rem 0.1rem 0rem #336 ;
+          
         }
         table{
-            width: 48%;
-            margin: 32px auto;
+            width: 40%;
+            margin: 3.2rem auto;
             font-size: 2.4rem;
         }
         tr,td{
             border: 0.1rem solid lightblue;
             margin: 0.8rem;
+            border-radius: 0.2rem;
+
+        }
+        td{
+            width: 4.2rem;
+            height: 3.2rem;
         }
         td:hover{
             cursor: pointer;
@@ -82,12 +101,12 @@
         #today{
             background: #ccc;
             border: 0.2rem solid green;
-            border-radius: 0.4rem;
+            border-radius: 0.5rem;
         }
     </style>
 </head>
 
-<body>
+<body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
     <?php
     $cal = [];
     $year =  (isset($_GET['y'])) ? $_GET['y'] : date("Y");
@@ -137,7 +156,7 @@
     <!-- 要不互相影響，變數值不要用一樣的 $year ，改變超連結的部分 $prevMonth && $nextMonth -->
     <div class="catlog">
         <a href="?y=<?= $prevYear ?>&m=<?= $prevMonth ?>" class="left">&lt;</a>
-        <div><?= $year; ?>年<?= $month ?>月</div>
+        <div><?= $year; ?>&nbsp;年&nbsp;<?= $month ?>&nbsp;月</div>
         <a href="?y=<?= $nextYear ?>&m=<?= $nextMonth ?>" class="right">&gt;</a>
     </div>
     <table>
