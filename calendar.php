@@ -10,39 +10,57 @@
 
 <body>
     <?php
-    $cal_test = ['', '', '', '', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    $cal = [];
+    $year =  (isset($_GET['y'])) ? $_GET['y'] : date("Y");
     $month = (isset($_GET['m'])) ? $_GET['m'] : date("n");
-    $year = (isset($_GET['y'])) ? $_GET['y'] : date("Y");
-    $cal[]='';
-    $nextMonth = $month + 1;
+    // $year=2022;
     $prevMonth = $month - 1;
+    $nextMonth = $month + 1;
 
-    $firstDay = $year . "-" . $month . "-1";
-    $firstDayWeek = date("N", strtotime($firstDay));
-    $monthDays=date("t",strtotime($firstDay));
-    $lastDay=$year.'-'.$month.'-'.$monthDays;
-    $spaceDays=$firstDayWeek-1;
-    $weekd=ceil(($monthDays+$spaceDays)/7);
+    //要不互相影響，變數直不要用一樣的 $year ，改變超連結的部分 $prevMonth && $nextMonth
+    if($month==1){
+        $prevMonth=12;//等同效 $month=13 再按一下 $month 從12開始--
+        $prevYear=$year-1;
+    }else{
+        $prevYear=$year;
+    }
+    
+    if($month==12){
+        $nextMonth=1;//等同效 month=0 再按一下 $$month 從一開始++
+        $nextYear=$year+1;
+    }else{ 
+        $nextYear=$year;
+    }
+       
 
-    for($i=0;$i<$spaceDays;$i++){
-        $cal[]='';
+
+    $firstDay = $year . "-" . $month . "-1"; //第一天
+    $firstDayWeek = date("N", strtotime($firstDay)); //N:1-7第一周的星期幾
+    $monthDays = date("t", strtotime($firstDay)); //當月的天數
+    $lastDay = $year . '-' . $month . '-' . $monthDays; //最後一天
+    $spaceDays = $firstDayWeek - 1; //空格的天數
+    $weeks = ceil(($monthDays + $spaceDays) / 7); //當月的周數
+    //---填入陣列-----//
+    for ($i = 0; $i < $spaceDays; $i++) {
+        $cal[] = '';
     }
-    for($i=0;$i<$monthDays;$i++){
-        $cal[]=date("",strtotime("+$i days",strtotime($firstDay)));
+    for ($i = 0; $i < $monthDays; $i++) {
+        $cal[] = date("j", strtotime("+$i days", strtotime($firstDay)));
     }
-    echo "<pre>";
-    print_r($cal);
-    echo "</pre>";
-    echo "第一天".$firstDay."星期".$firstDayWeek;
+    // echo "<pre>";
+    // print_r($cal);
+    // echo "</pre>";
+    echo "第一天 : " . $firstDay . "星期" . $firstDayWeek;
     echo "<br>";
-    echo "該月共".$monthDays."天，最後一天是".$lastDay;
-
-        ?>
-    <div>
-
-        <a href="?y=2022&m=<?= $nextMonth ?>">上一個月</a>
-        <h1><?= $year; ?><?= $month ?></h1>
-        <a href="?y=2022&m=<?= $prevMonth ?>">下一個月</a>
+    echo "該月共" . $monthDays . "天，最後一天是" . $lastDay;
+    echo "<br>";
+    echo "月曆天數" . ($monthDays + $spaceDays) . "天，" . $weeks . "周";
+    ?>
+    <!-- 要不互相影響，變數值不要用一樣的 $year ，改變超連結的部分 $prevMonth && $nextMonth -->
+    <div style="display:flex;width:80%;justify-content:space-between;align-items:center">
+        <a href="?y=<?= $prevYear ?>&m=<?= $prevMonth ?>">上一個月</a>
+        <h1><?= $year; ?>年<?= $month ?>月</h1>
+        <a href="?y=<?= $nextYear ?>&m=<?= $nextMonth ?>">下一個月</a>
     </div>
     <table>
         <?php
