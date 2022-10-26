@@ -87,15 +87,20 @@ table {
     min-height: 28rem;
     margin: 1.2rem auto 4rem auto;
     font-size: 2.4rem;
-    background-color: #fff;
+    background-color: #ffffff60;
+    border-radius: 1.2rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-tr,
 td {
     border: 0.1rem solid lightblue;
-    border-radius: 0.2rem;
+    border-radius: 1rem;
     width: 4.2rem;
-    height: 3.2rem;
+    height: 3.2rem;    
+}
+tr:nth-child(1){
+    font-family: "標楷體";
+    font-weight: bold;
 }
 
 td:hover {
@@ -114,9 +119,14 @@ td:nth-child(7) {
 #today {
     background: #ccc;
     border: 0.2rem solid green;
-    border-radius: 0.5rem;
+    border-radius: 1.2rem;
 }
 
 #firstr {
-    background-color: #eef;
+    background-color: #eeeeff80;
+}
+#firstr:hover{
+    background: linear-gradient( #aae,#ccf);
+    color: #fff;
+    font-weight: bold;
 }

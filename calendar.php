@@ -9,6 +9,10 @@
 
     <title>萬年曆</title>
     <style>
+        body{
+            background: url("./images/04.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
     </style>
 </head>
 
