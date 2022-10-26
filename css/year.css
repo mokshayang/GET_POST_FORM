@@ -1,0 +1,122 @@
+html {
+    font-size: 10px;
+
+    font-family: "微軟正黑體";
+}
+
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.catlog {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.catlog div {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 0.1rem 0.1rem 0.2rem #333;
+    margin: 12px auto;
+}
+
+.left,
+.right {
+    display: block;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    color: #eee;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2.4rem;
+    margin: 0 auto;
+    line-height: 31px;
+    text-align: center;
+    background: linear-gradient(to left, blue, #ccf);
+    border: 0.1rem solid blue;
+    box-sizing: content-box;
+    justify-self: end;
+}
+
+.right {
+    background: linear-gradient(to right, blue, #ccf);
+    justify-self: start;
+}
+
+.left:hover {
+    background: linear-gradient(to left, #99f, blue);
+    font-size: 28px;
+    transform: scale(1.0);
+}
+
+.right:hover {
+    background: linear-gradient(to right, #99f, blue);
+    font-size: 28px;
+    transform: scale(1.0);
+}
+
+.catlog a:active {
+    box-shadow: inset 0.1rem 0.1rem 0.1rem 0rem #336;
+    transform: scale(1);
+    border: 0.1rem solid #00a;
+    box-sizing: border-box;
+
+}
+
+.left:active {
+    box-shadow: inset -0.1rem 0.1rem 0.1rem 0rem #336;
+}
+
+.tab {
+    width: 65%;
+    min-width: 40rem;
+    min-height:36rem;
+    background-color: #cccc0060;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #666;
+    padding-bottom: 1rem;
+}
+table {
+    width: 80%;
+    min-height: 28rem;
+    margin: 1.2rem auto 4rem auto;
+    font-size: 2.4rem;
+    background-color: #fff;
+}
+
+tr,
+td {
+    border: 0.1rem solid lightblue;
+    border-radius: 0.2rem;
+    width: 4.2rem;
+    height: 3.2rem;
+}
+
+td:hover {
+    cursor: pointer;
+    background: linear-gradient(blue, #eef);
+    color: #fff;
+    font-weight: bold;
+}
+
+td:nth-child(1),
+td:nth-child(7) {
+    background: #00DB00;
+    border: 0.2rem solid green;
+}
+
+#today {
+    background: #ccc;
+    border: 0.2rem solid green;
+    border-radius: 0.5rem;
+}
+
+#firstr {
+    background-color: #eef;
+}
