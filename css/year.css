@@ -1,20 +1,42 @@
 html {
     font-size: 10px;
-
     font-family: "微軟正黑體";
-}
+    height: 100%;
 
+}
 * {
     box-sizing: border-box;
-    text-align: center;
+    margin: 0;
+    padding: 0;
 }
-
+body{
+    position: relative;
+    height: 100%;
+}
+#header{
+    height: 8rem;
+    width: 100%; 
+    background-color: #00000090;
+    margin-bottom: 7.2rem;
+    text-align:start;
+    line-height: 7.8rem;
+    font-size: 6rem;
+    box-shadow: 0 0.1rem 0.1rem 0.1rem #333;
+    color:#0e0;
+    text-shadow: 0.3rem 0.3rem 0.1rem yellow;
+}
 .catlog {
     width: 90%;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 3fr 1fr 2fr 1fr 3fr;
     align-items: center;
+    justify-items: center;
     margin: 0 auto;
+}
+
+.catlog {
+    margin-top: 2.4rem;
+    text-align: center;
 }
 
 .catlog div {
@@ -36,11 +58,31 @@ html {
     font-size: 2.8rem;
     margin: 0 auto;
     line-height: 3.8rem;
-    text-align: center;
     background: linear-gradient(to left, blue, #ccf);
     border: 0.1rem solid blue;
     box-sizing: content-box;
     justify-self: end;
+    text-align: center;
+}
+
+.leftyear,
+.rightyear {
+    display: block;
+    width: 12rem;
+    height: 4rem;
+    border-radius: 1rem;
+    color: #00a;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2.8rem;
+    border: 0.1rem solid #49ED18;
+    background: radial-gradient(ellipse at center, #fff, #eca, #49ED18);
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #ED170C;
+    text-align: center;
+}
+
+.catlog i {
+    padding: 0 0.4rem;
 }
 
 .right {
@@ -60,7 +102,14 @@ html {
     transform: scale(1.0);
 }
 
-.catlog a:active {
+.leftyear:hover,
+.rightyear:hover {
+    background: radial-gradient(ellipse at center, #fff,#ddd, #49ED18);
+    transform: scale(1.02);
+}
+
+.left:active,
+.right:active {
     box-shadow: inset 0.1rem 0.1rem 0.1rem 0rem #336;
     transform: scale(1);
     border: 0.1rem solid #00a;
@@ -72,24 +121,34 @@ html {
     box-shadow: inset -0.1rem 0.1rem 0.1rem 0rem #336;
 }
 
+.leftyear:active,
+.rightyear:active {
+    box-shadow: -0.1rem -0.1rem 0.1rem 0.1rem #ED170C;
+
+}
+
 .tab {
     width: 65%;
     min-width: 40rem;
-    min-height:36rem;
+    min-height: 40rem;
     background-color: #cccc0060;
     margin: 0 auto;
     border-radius: 20px;
     box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #666;
-    padding-bottom: 1rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
 }
+
 table {
     width: 80%;
-    min-height: 30rem;
-    margin: 1.2rem auto 4rem auto;
-    font-size: 2.4rem;
+    min-height: 40rem;
+    margin: 1.2rem auto 6rem auto;
+    font-size: 3.2rem;
     background-color: #ffffff60;
     border-radius: 1.2rem;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    text-align: center;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #33333360;
 }
 
 td {
@@ -97,9 +156,9 @@ td {
     border-radius: 1rem;
     width: 4.2rem;
     height: 3.6rem;
-    
 }
-tr:nth-child(1){
+
+tr:nth-child(1) {
     font-family: "標楷體";
     font-weight: bold;
 }
@@ -108,7 +167,8 @@ td:hover {
     cursor: pointer;
     background: linear-gradient(blue, #eef);
     color: #fff;
-    font-weight: bold;
+    font-weight: 800;
+    
 }
 
 td:nth-child(1),
@@ -118,7 +178,7 @@ td:nth-child(7) {
 }
 
 #today {
-    background: #ccc;
+    background: #cccccc80;
     border: 0.2rem solid green;
     border-radius: 1.2rem;
 }
@@ -126,8 +186,74 @@ td:nth-child(7) {
 #firstr {
     background-color: #eeeeff80;
 }
-#firstr:hover{
-    background: linear-gradient( #aae,#ccf);
+
+#firstr:hover {
+    background: linear-gradient(#aae, #ccf);
     color: #fff;
     font-weight: bold;
+}
+.select{
+    text-align: center;
+}
+select {
+    width: 8rem;
+    height: 4rem;
+    font-size: 3.2rem;
+    border-radius: 1rem;
+    outline: none;
+    background-color: #49ED1840;
+    border: 2px solid lightgreen;
+    font-weight: bold;
+    margin: 1rem auto;
+    text-shadow: 0.1rem 0.1rem 0.1rem #666;
+    color: #00e;
+    text-align: center;
+}
+
+select[name="y"] {
+    width: 12rem;
+}
+
+select[name="m"] {
+    margin-left: 5rem;    
+}
+
+span {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-left: 1rem;
+    padding-bottom: 2rem;
+    font-family: "標楷體";
+    text-shadow: 0.1rem 0.1rem 0.2rem #333;
+}
+
+.arrow {
+    animation: arrow 1s ease-in infinite alternate;
+    text-shadow: 0.1rem 0.1rem 0.1rem #66e;
+}
+@keyframes arrow {
+    0% {
+        color: #88f;
+    }
+    33% {
+        color: #aaa;
+    }
+    66% {
+        color: #cc5;
+    }
+    100% {
+        opacity: 1s;
+        color: #ee0;
+    }
+}
+footer{
+    height: 4.5rem;
+    background-color: #00000090;
+    color:#eee;
+    text-align: center;
+    line-height: 4.4rem;
+    font-size: 3rem;
+    position:absolute;
+    width: 100%;
+    bottom: 0;
 }
