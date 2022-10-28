@@ -132,6 +132,7 @@
             }
             ?>
         </table>
+        <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today" >Today</a></div>
     </div>
     <footer>
         <div>&copy;2022-11-12 &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-ninja"></i> : 泰山職訓局PHP班 第二期 15號</div>

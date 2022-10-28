@@ -142,7 +142,7 @@ body{
 table {
     width: 80%;
     min-height: 40rem;
-    margin: 1.2rem auto 6rem auto;
+    margin: 1.2rem auto 1.2rem auto;
     font-size: 3.2rem;
     background-color: #ffffff60;
     border-radius: 1.2rem;
@@ -256,4 +256,17 @@ footer{
     position:absolute;
     width: 100%;
     bottom: 0;
+}
+.today{
+    display: block;
+    margin: 1.5rem auto 2rem auto;
+    text-align: center;
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: #00f;
+}
+.today:hover{
+    color: #ff0;
+    font-weight: bold;
+    text-decoration: underline;
 }
