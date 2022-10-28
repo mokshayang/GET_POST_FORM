@@ -62,8 +62,8 @@
             <div><?= $year; ?>&nbsp;年&nbsp;<?= $month ?>&nbsp;月</div>
             <a href="?y=<?= $year ?>&m=<?= $nextMonth ?>" class="right">&gt;</a>
         </div>
-        <!-- <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="get"> -->
-        <!-- <form action="<?php echo $_SERVER['PHP_SELF'] ?>" mothed="get"> -->
+        <!-- <form action="<?php //echo $_SERVER['PHP_SELF'] ?>" method="get"> -->
+        <!-- <form action="<?php //echo $_SERVER['PHP_SELF'] ?>" mothed="get"> -->
         <label>
             <select name='y' id=year>
                 <?php
@@ -91,7 +91,7 @@
             }, false);​
         </script>
         <?php 
-            $year="<sprict type=text/javascript>document.write('z')</script>";
+            $year="<sprict type=text/javascript>\".document.write('z').\"</script>";
 ?>
         <?php echo $year ?>
         <label>
