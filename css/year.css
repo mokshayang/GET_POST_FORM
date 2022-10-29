@@ -17,13 +17,36 @@ body{
     height: 8rem;
     width: 100%; 
     background-color: #00000090;
-    margin-bottom: 7.2rem;
+    margin-bottom: 4rem;
     text-align:start;
     line-height: 7.8rem;
     font-size: 6rem;
     box-shadow: 0 0.1rem 0.1rem 0.1rem #333;
     color:#0e0;
     text-shadow: 0.3rem 0.3rem 0.1rem yellow;
+}
+.tab {
+    width: 65%;
+    min-width: 40rem;
+    min-height: 40rem;
+    background-color: #cccc0060;
+    margin: 6rem auto;
+    border-radius: 20px;
+    box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #666;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+table {
+    width: 80%;
+    min-height: 40rem;
+    margin: 1.2rem auto 1.2rem auto;
+    font-size: 3.2rem;
+    background-color: #ffffff60;
+    border-radius: 1.2rem;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    text-align: center;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #33333360;
 }
 .catlog {
     width: 90%;
@@ -127,29 +150,6 @@ body{
 
 }
 
-.tab {
-    width: 65%;
-    min-width: 40rem;
-    min-height: 40rem;
-    background-color: #cccc0060;
-    margin: 0 auto;
-    border-radius: 20px;
-    box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #666;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-}
-
-table {
-    width: 80%;
-    min-height: 40rem;
-    margin: 1.2rem auto 1.2rem auto;
-    font-size: 3.2rem;
-    background-color: #ffffff60;
-    border-radius: 1.2rem;
-    font-family: 'Franklin Gothic Medium', sans-serif;
-    text-align: center;
-    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #33333360;
-}
 
 td {
     border: 0.1rem solid lightblue;
@@ -271,6 +271,10 @@ footer{
     text-decoration: underline;
 }
 footer img{
-    vertical-align:middle;
-    padding-bottom: 0.8rem;
+    vertical-align:top;
+    padding-top: 0.2rem;
+}
+.container{
+    width: 120rem;
+    height: 72rem;
 }

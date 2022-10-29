@@ -9,9 +9,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>萬年曆 PH班第二期</title>
     <style>
-        body {
-            background: url("./images/04.jpg") no-repeat;
-            background-size: 100% 100%;
+        html {
+            background-color: #eee;
+        }
+
+        .container {
+            width: 72%;
+            margin: 0 auto;
+            border: 1rem solid #fff;
+            box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #666;
+        }
+
+        .slider {
+            /*設定圖片比列(2:1)*/
+            width: 100%;
+            height: 0;
+            padding-bottom: 50%;
+            position: relative;
+            /* overflow: hidden; */
+            /* border: 2rem solid #fff; */
+            /* margin: 0;
+            padding: 0; */
+            border: none;
+        }
+
+        #img {
+            width: 400%;
+            /*4張的寬度*/
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /*新技術喔，重要*/
+        }
+
+        #img img {
+            width: 100%;
+        }
+        .tab{
+            position: relative;
+            top:-75rem;
         }
     </style>
 </head>
@@ -22,6 +58,19 @@
             ~ 萬 年 曆 作 業 練 習 ~
         </marquee>
     </header>
+    <div class="title">
+        萬年曆
+    </div>
+    <div class="container">
+        <div class="slider">
+            <div id="img">
+                <img src="./images/01.jpg" alt="photo">
+                <img src="./images/02.jpg" alt="photo">
+                <img src="./images/03.jpg" alt="photo">
+                <img src="./images/04.jpg" alt="photo">
+            </div>
+        </div>
+    </div>
     <?php
     date_default_timezone_set("Asia/Taipei");
     $cal = [];
@@ -132,7 +181,10 @@
             }
             ?>
         </table>
-        <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today" ><i>Today : <?=date('Y-m-d')?></i></a></div>
+        <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today"><i>Today : <?= date('Y-m-d') ?></i></a></div>
+    </div>
+    </div>
+    </div>
     </div>
     <footer>
         <div>&copy; 2022-11-12 &nbsp;&nbsp;&nbsp; <img src="./images/logo.png" alt="勞動力發展署"> : 泰山職訓局 PHP班 第二期 &nbsp;<i class="fa-solid fa-user-ninja"></i> : 15號</div>
