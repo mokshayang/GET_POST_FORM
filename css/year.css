@@ -1,7 +1,6 @@
 html {
     font-size: 10px;
     font-family: "微軟正黑體";
-    height: 100%;
 
 }
 * {
@@ -9,28 +8,25 @@ html {
     margin: 0;
     padding: 0;
 }
-body{
-    position: relative;
-    height: 100%;
-}
+
 #header{
-    height: 8rem;
-    width: 100%; 
+    height: 4rem;
     background-color: #00000090;
-    margin-bottom: 4rem;
+    margin-bottom: 0.5rem;
     text-align:start;
-    line-height: 7.8rem;
-    font-size: 6rem;
+    line-height: 3.9rem;
+    font-size: 2.8rem;
     box-shadow: 0 0.1rem 0.1rem 0.1rem #333;
     color:#0e0;
     text-shadow: 0.3rem 0.3rem 0.1rem yellow;
 }
 .tab {
-    width: 65%;
-    min-width: 40rem;
-    min-height: 40rem;
+    width: 60%;
+    /* min-width: 40rem;
+    min-height: 40rem; */
+    height: 80%;
     background-color: #cccc0060;
-    margin: 6rem auto;
+    margin:  auto;
     border-radius: 20px;
     box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #666;
     padding-top: 0.1rem;
@@ -39,9 +35,9 @@ body{
 
 table {
     width: 80%;
-    min-height: 40rem;
-    margin: 1.2rem auto 1.2rem auto;
-    font-size: 3.2rem;
+    /* min-height: 40rem; */
+    margin: 0.5rem auto ;
+    font-size: 2rem;
     background-color: #ffffff60;
     border-radius: 1.2rem;
     font-family: 'Franklin Gothic Medium', sans-serif;
@@ -58,29 +54,29 @@ table {
 }
 
 .catlog {
-    margin-top: 2.4rem;
+    margin-top: 0.5rem;
     text-align: center;
 }
 
 .catlog div {
-    font-size: 2.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     text-shadow: 0.1rem 0.1rem 0.2rem #333;
-    margin: 12px auto;
+    margin: 0.5rem auto;
 }
 
 .left,
 .right {
     display: block;
-    width: 4rem;
-    height: 4rem;
+    width: 3.2rem;
+    height: 3.2rem;
     border-radius: 50%;
     color: #eee;
     text-decoration: none;
     font-weight: bold;
-    font-size: 2.8rem;
+    font-size: 2rem;
     margin: 0 auto;
-    line-height: 3.8rem;
+    line-height: 3rem;
     background: linear-gradient(to left, blue, #ccf);
     border: 0.1rem solid blue;
     box-sizing: content-box;
@@ -91,13 +87,13 @@ table {
 .leftyear,
 .rightyear {
     display: block;
-    width: 12rem;
-    height: 4rem;
+    width: 9rem;
+    height: 3rem;
     border-radius: 1rem;
     color: #00a;
     text-decoration: none;
     font-weight: bold;
-    font-size: 2.8rem;
+    font-size: 2rem;
     border: 0.1rem solid #49ED18;
     background: radial-gradient(ellipse at center, #fff, #eca, #49ED18);
     box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #ED170C;
@@ -105,7 +101,7 @@ table {
 }
 
 .catlog i {
-    padding: 0 0.4rem;
+    padding: 0 0.2rem;
 }
 
 .right {
@@ -115,13 +111,13 @@ table {
 
 .left:hover {
     background: linear-gradient(to left, #99f, blue);
-    font-size: 32px;
+    font-size: 2.4rem;
     transform: scale(1.0);
 }
 
 .right:hover {
     background: linear-gradient(to right, #99f, blue);
-    font-size: 32px;
+    font-size: 2.4rem;
     transform: scale(1.0);
 }
 
@@ -154,8 +150,8 @@ table {
 td {
     border: 0.1rem solid lightblue;
     border-radius: 1rem;
-    width: 4.2rem;
-    height: 3.6rem;
+    width: 3rem;
+    height: 3rem;
 }
 
 tr:nth-child(1) {
@@ -196,10 +192,10 @@ td:nth-child(7) {
     text-align: center;
 }
 select {
-    width: 8rem;
-    height: 4rem;
-    font-size: 3.2rem;
-    border-radius: 1rem;
+    width: 6rem;
+    height: 2.8rem;
+    font-size: 2rem;
+    border-radius: 0.5rem;
     outline: none;
     background-color: #49ED1840;
     border: 2px solid lightgreen;
@@ -211,15 +207,15 @@ select {
 }
 
 select[name="y"] {
-    width: 12rem;
+    width: 10rem;
 }
 
 select[name="m"] {
-    margin-left: 5rem;    
+    margin-left:2rem;    
 }
 
 span {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     padding-left: 1rem;
     padding-bottom: 2rem;
@@ -273,8 +269,4 @@ footer{
 footer img{
     vertical-align:top;
     padding-top: 0.2rem;
-}
-.container{
-    width: 120rem;
-    height: 72rem;
 }
