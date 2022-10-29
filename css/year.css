@@ -252,7 +252,7 @@ footer{
     color:#eee;
     text-align: center;
     line-height: 4.4rem;
-    font-size: 3rem;
+    font-size: 2.4rem;
     position:absolute;
     width: 100%;
     bottom: 0;
@@ -269,4 +269,8 @@ footer{
     color: #ff0;
     font-weight: bold;
     text-decoration: underline;
+}
+footer img{
+    vertical-align:middle;
+    padding-bottom: 0.8rem;
 }

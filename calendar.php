@@ -132,10 +132,10 @@
             }
             ?>
         </table>
-        <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today" >Today</a></div>
+        <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today" ><i>Today : <?=date('Y-m-d')?></i></a></div>
     </div>
     <footer>
-        <div>&copy;2022-11-12 &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-ninja"></i> : 泰山職訓局PHP班 第二期 15號</div>
+        <div>&copy; 2022-11-12 &nbsp;&nbsp;&nbsp; <img src="./images/logo.png" alt="勞動力發展署"> : 泰山職訓局 PHP班 第二期 &nbsp;<i class="fa-solid fa-user-ninja"></i> : 15號</div>
     </footer>
 </body>
 
