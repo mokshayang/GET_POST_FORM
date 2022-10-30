@@ -258,25 +258,25 @@
     });
 
     $('.previmg').click(function() { //往左按一下
-        if (prev == false) {
-            prev = true;
-            if (x <= -100) { //定位-500%  => -400% => -300% => -200% =>-100%
+        // if (prev == false) {
+        //     prev = true;
+        //     if (x <= -100) { //定位-500%  => -400% => -300% => -200% =>-100%
 
-                x += 100; // -400; -300; -200; -100; 0;
-            } else {
-                banner.css({
-                    'left': -(k * 100) + '%'
-                }); //定位-500%
-                x = -(k - 1) * 100; //-400%;
-            };
-            banner.animate({
-                left: x + '%'
-            }, 800);
+        //         x += 100; // -400; -300; -200; -100; 0;
+        //     } else {
+        //         banner.css({
+        //             'left': -(k * 100) + '%'
+        //         }); //定位-500%
+        //         x = -(k - 1) * 100; //-400%;
+        //     };
+        //     banner.animate({
+        //         left: x + '%'
+        //     }, 800);
             setTimeout(function() {
                 prev = false;
                 location.href = "?y=<?= $year ?>&m=<?= $prevMonth ?>";
-            }, 801);
-        };
+            }, 101);
+        // };
     });
 </script>
 
