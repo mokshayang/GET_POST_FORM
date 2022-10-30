@@ -8,18 +8,16 @@
     <link rel="stylesheet" href="css/year.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>萬年曆 PH班第二期</title>
     <style>
-        html {
-            background-color: #ccc;
-        }
-
         .container {
-            width: 52%;
+            width: 51%;
             margin: 0 auto;
             border: 1rem solid #fff;
-            box-shadow: 0rem 0rem 0.2rem 0.1rem #333;
+            box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #333;
             min-width: 60rem;
+            background: linear-gradient(green, #ccf, pink, #ccf);
         }
 
         .slider {
@@ -29,23 +27,22 @@
             padding-bottom: 47%;
             position: relative;
             overflow: hidden;
-            border: 0.2rem solid #333;
+            border: 0.3rem double #009393;
+            box-shadow: inset 0.1rem 0.1rem 0.1rem 0.1rem #999;
         }
 
         #img {
-            width: 1300%;
-            /*13張的寬度*/
+            width: 300%;
             position: absolute;
             display: grid;
-            grid-template-columns: repeat(13, 1fr);
-            /*新技術喔，重要*/
-
+            grid-template-columns: repeat(3, 1fr);
         }
 
         #img img {
             width: 100%;
         }
     </style>
+    <link rel="stylesheet" href="css/media.css">
 </head>
 
 <body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
@@ -54,7 +51,6 @@
             ~ 萬 年 曆 作 業 練 習 ~
         </marquee>
     </header>
-
     <?php
     date_default_timezone_set("Asia/Taipei");
     $cal = [];
@@ -98,29 +94,7 @@
     <div class="container">
         <div class="slider">
             <div id="img">
-                <!-- <img src="./images/<?= $month ?>.jpg" alt="">
-                <img src="./images/<?= $nextMonth ?>.jpg" alt=""> -->
-                <!-- <img src="./images/<?= $month ?>.jpg" alt="">
-                <img src="./images/<?= $month ?>.jpg" alt="">
-                <img src="./images/<?= $month ?>.jpg" alt="">
-                <img src="./images/1.jpg" alt=""> -->
                 <?Php
-
-                // if ($prevMonth < 1) {
-                //     echo "<img src='images/";
-                //     echo 1;
-                //     echo ".jpg '>";
-                //     echo "<img src='images/";
-                //     echo 12;
-                //     echo ".jpg '>";
-                //     echo $month;
-                // } else {
-                //     for ($i = 0; $i <= 2; $i++) {
-                //         echo "<img src='images/";
-                //         echo $month - ($i);
-                //         echo ".jpg '>";
-                //     }
-                // }
                 if ($nextMonth > 12) {
                     echo "<img src='images/";
                     echo 12;
@@ -136,26 +110,17 @@
                         echo ".jpg '>";
                     }
                 }
-
-                $prevMonth = $month - 1;
-                $nextMonth = $month + 1;
-                $prevYear = $year - 1;
-                $nextYear = $year + 1;
-
                 ?>
-                <img src="./images/1.jpg" alt="calendar">
             </div>
         </div>
         <div class="tabMiddle">
             <div class="catlog">
                 <div><a href="?y=<?= $prevYear ?>&m=<?= $month ?>" class="leftyear"><?= $year - 1 ?><i class="fa-solid fa-backward arrow"></i></a></div>
-                <div class="left previmg">&lt;</div>
+                <div class="left previmg" title="上個月">&lt;</div>
 
-                <div class="right nextimg">&gt;</div>
-                <div><a href="?y=<?= $nextYear ?>&m=<?= $month ?>" class="rightyear"><i class="fa-solid fa-forward arrow"></i><?= $year + 1 ?></a></div>
                 <div class="select">
                     <label>
-                        <select name='y' onChange="location = this.value;">
+                        <select name='y' onChange="location = this.value;" title="選擇年份">
                             <?php
                             for ($i = date("Y") - 50; $i < date("Y") + 50; $i++) {
                                 if ($i == $year) {
@@ -173,7 +138,7 @@
                     </label>
 
                     <label>
-                        <select name="m" onChange="location = this.value;">
+                        <select name="m" onChange="location = this.value;" title="選擇月份">
                             <?php
                             for ($i = 1; $i <= 12; $i++) {
                                 if ($i == $month) {
@@ -190,6 +155,8 @@
                         <span>月</span>
                     </label>
                 </div>
+                <div class="right nextimg" title="下個月">&gt;</div>
+                <div><a href="?y=<?= $nextYear ?>&m=<?= $month ?>" class="rightyear"><i class="fa-solid fa-forward arrow"></i><?= $year + 1 ?></a></div>
             </div>
         </div>
         <div class="tab">
@@ -221,15 +188,14 @@
             <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today"><i>Today : <?= date('Y-m-d') ?></i></a></div>
         </div>
     </div>
-    </div>
     <footer>
-        <div>&copy; 2022-11-12 &nbsp;&nbsp;&nbsp; <img src="./images/logo.png" alt="勞動力發展署"> : 泰山職訓局 PHP班 第二期 &nbsp;<i class="fa-solid fa-user-ninja"></i> : 15號</div>
+        <div>&copy; 2022-11-12 &nbsp;&nbsp;&nbsp; <img src="./images/logo.png" alt="勞動力發展署"> : 泰山職訓局 PHP班 第二期 &nbsp;<i class="fa-solid fa-user-ninja"></i> : 15號
+        </div>
     </footer>
 </body>
 <script>
     var x = 0; //手動用作標
-    const k = 12; //5張圖片
-    var interval; //間隔時間，自動用
+    const k = 2; //2張圖片
     var banner = $('#img'); //簡化;
     var next = false,
         prev = false;
@@ -237,9 +203,8 @@
     $('.nextimg').click(function() { //往右按一下
         if (next == false) {
             next = true;
-            if (x >= -((k - 1) * 100)) { //初始0; -100%; -200%; -300%; -400%;
-                x -= 100; //-100%; -200%; -300%; -400%; -500%;
-
+            if (x >= -((k - 1) * 100)) {
+                x -= 100;
             } else {
                 banner.css({
                     'left': '0%'
@@ -248,35 +213,20 @@
             };
             banner.animate({
                 left: x + '%'
-            }, 800);
+            }, 1500, "easeOutBounce");
             setTimeout(function() {
                 next = false;
                 location.href = "?y=<?= $year ?>&m=<?= $nextMonth ?>";
-            }, 801);
+            }, 1501);
 
         };
     });
 
     $('.previmg').click(function() { //往左按一下
-        // if (prev == false) {
-        //     prev = true;
-        //     if (x <= -100) { //定位-500%  => -400% => -300% => -200% =>-100%
-
-        //         x += 100; // -400; -300; -200; -100; 0;
-        //     } else {
-        //         banner.css({
-        //             'left': -(k * 100) + '%'
-        //         }); //定位-500%
-        //         x = -(k - 1) * 100; //-400%;
-        //     };
-        //     banner.animate({
-        //         left: x + '%'
-        //     }, 800);
-            setTimeout(function() {
-                prev = false;
-                location.href = "?y=<?= $year ?>&m=<?= $prevMonth ?>";
-            }, 101);
-        // };
+        setTimeout(function() {
+            prev = false;
+            location.href = "?y=<?= $year ?>&m=<?= $prevMonth ?>";
+        }, 20);
     });
 </script>
 

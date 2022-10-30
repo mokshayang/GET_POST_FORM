@@ -1,6 +1,7 @@
 html {
     font-size: 10px;
     font-family: "微軟正黑體";
+    background-color: #ccc;
 
 }
 * {
@@ -53,7 +54,7 @@ table {
 .catlog {
     width: 95%;
     display: grid;
-    grid-template-columns:2fr 1fr 1fr 2fr 4fr;
+    grid-template-columns:2fr 1fr 4fr 1fr 2fr;
     align-items: center;
     justify-items: center;
     margin: 0 auto;
@@ -89,6 +90,7 @@ table {
     box-sizing: content-box;
     justify-self: end;
     text-align: center;
+    
 }
 
 .leftyear,
@@ -120,12 +122,14 @@ table {
     background: linear-gradient(to left, #99f, blue);
     font-size: 2.4rem;
     transform: scale(1.0);
+    cursor: pointer;
 }
 
 .right:hover {
     background: linear-gradient(to right, #99f, blue);
     font-size: 2.4rem;
     transform: scale(1.0);
+    cursor: pointer;
 }
 
 .leftyear:hover,
@@ -194,9 +198,8 @@ td:nth-child(7) {
 }
 
 select {
-    width: 4rem;
-    height: 2.4rem;
-    font-size: 1.8rem;
+    height: 2.8rem;
+    font-size: 2rem;
     border-radius: 0.5rem;
     outline: none;
     background-color: #49ED1840;
@@ -206,15 +209,15 @@ select {
     text-shadow: 0.1rem 0.1rem 0.1rem #666;
     color: #00e;
     text-align: center;
+    cursor: pointer;
 }
 
 select[name="y"] {
-    width: 7.2rem;
+    width: 8rem;
 }
 
 select[name="m"] {
-    width: 5rem;
-
+    width: 6rem;
     margin-left:1rem;    
 }
 
