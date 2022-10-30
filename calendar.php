@@ -98,16 +98,50 @@
     <div class="container">
         <div class="slider">
             <div id="img">
+                <!-- <img src="./images/<?= $month ?>.jpg" alt="">
+                <img src="./images/<?= $nextMonth ?>.jpg" alt=""> -->
+                <!-- <img src="./images/<?= $month ?>.jpg" alt="">
+                <img src="./images/<?= $month ?>.jpg" alt="">
+                <img src="./images/<?= $month ?>.jpg" alt="">
+                <img src="./images/1.jpg" alt=""> -->
                 <?Php
-                // if ($month > 12) {
-                    // $month = 1;
-                    for ($i = 0; $i < 2; $i++) {
-                        
+
+                // if ($prevMonth < 1) {
+                //     echo "<img src='images/";
+                //     echo 1;
+                //     echo ".jpg '>";
+                //     echo "<img src='images/";
+                //     echo 12;
+                //     echo ".jpg '>";
+                //     echo $month;
+                // } else {
+                //     for ($i = 0; $i <= 2; $i++) {
+                //         echo "<img src='images/";
+                //         echo $month - ($i);
+                //         echo ".jpg '>";
+                //     }
+                // }
+                if ($nextMonth > 12) {
+                    echo "<img src='images/";
+                    echo 12;
+                    echo ".jpg '>";
+                    echo "<img src='images/";
+                    echo 1;
+                    echo ".jpg '>";
+                    echo $month;
+                } else {
+                    for ($i = 0; $i <= 1; $i++) {
                         echo "<img src='images/";
                         echo $month + ($i);
                         echo ".jpg '>";
                     }
-                // }
+                }
+
+                $prevMonth = $month - 1;
+                $nextMonth = $month + 1;
+                $prevYear = $year - 1;
+                $nextYear = $year + 1;
+
                 ?>
                 <img src="./images/1.jpg" alt="calendar">
             </div>
