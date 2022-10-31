@@ -184,16 +184,18 @@ td:nth-child(7) {
 #today {
     background: #cccccc80;
     border: 0.2rem solid green;
-    border-radius: 1.2rem;
+    
 }
 
 #firstr {
     background-color: #eeeeff80;
+    font-family: "標楷體";
+    font-size: 2.4rem;
 }
 
 #firstr:hover {
     background: linear-gradient(#aae, #ccf);
-    color: #fff;
+    color: #000;
     font-weight: bold;
 }
 
@@ -250,12 +252,13 @@ span {
 }
 .today{
     display: block;
-    margin: 0.5rem auto 0.5rem auto;
+    margin: 1.2rem auto 0.5rem auto;
     text-align: center;
     font-size: 2rem;
     text-decoration: none;
     color: #00f;
     font-weight: bold;
+
 }
 .today:hover{
     color: #ff0;
@@ -263,7 +266,9 @@ span {
     text-decoration: underline;
 }
 footer img{
-    vertical-align:top;
+    vertical-align:text-bottom;
+    width: 3.2rem;
+    height: 3.2rem;
 }
 footer{
     height: 4rem;
@@ -275,4 +280,15 @@ footer{
     position:absolute;
     width: 100%;
     bottom: 0;
+}
+footer div{
+    width: 100%;
+    margin: auto;
+    animation: str 5s steps(32, end)  ;
+    word-break: break-all;
+    overflow: hidden;
+}
+@keyframes str {
+    from { width: 0; }
+    to { width:80%; }
 }

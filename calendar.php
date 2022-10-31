@@ -12,7 +12,7 @@
     <title>萬年曆 PH班第二期</title>
     <style>
         .container {
-            width: 51%;
+            width: 48%;
             margin: 0 auto;
             border: 1rem solid #fff;
             box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #333;
@@ -32,14 +32,50 @@
         }
 
         #img {
-            width: 300%;
+            width: 1300%;
             position: absolute;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(13, 1fr);
         }
 
         #img img {
             width: 100%;
+        }
+
+        .dis {
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-auto-rows: 4.2rem;
+            justify-items: center;
+            align-items: center;
+            margin-top: 3rem;
+            margin: 3rem auto 0 auto;
+            /* position: relative; */
+        }
+
+        .dis div {
+            width: 98%;
+            height: 4rem;
+            align-self: center;
+            border: 1px solid #000;
+            line-height: 3.9rem;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', sans-serif;
+            font-weight: bold;
+            border-radius: 1.2rem;
+            font-size: 2.4rem;
+            background-color: #02e44060;
+            transition: transform 2s 0s ease-out,background 5s ,color 5s  ;
+        }
+
+        .dis div:hover {
+            cursor: pointer;
+            background: linear-gradient(blue, #eef);
+            background-color: #66f;
+            color: #fff;
+            font-weight: 800;
+            transform: rotateY(360deg);      
         }
     </style>
     <link rel="stylesheet" href="css/media.css">
@@ -75,6 +111,7 @@
     $lastDay = $year . '-' . $month . '-' . $monthDays; //最後一天
     $spaceDays = $firstDayWeek; //空格的天數
     $weeks = ceil(($monthDays + $spaceDays) / 7); //當月的周數
+    $lastSpace = $weeks * 7 - $spaceDays - $monthDays;
     //--------------------填入陣列--------------------//
     for ($i = 0; $i < $spaceDays; $i++) {
         $cal[] = '';
@@ -82,6 +119,10 @@
     for ($i = 0; $i < $monthDays; $i++) {
         $cal[] = date("j", strtotime("+$i days", strtotime($firstDay)));
     }
+    for ($i = 0; $i < $lastSpace; $i++) {
+        $cal[] = '';
+    }
+
     // echo "<pre>";
     // print_r($cal);
     // echo "</pre>";
@@ -104,13 +145,15 @@
                     echo ".jpg '>";
                     echo $month;
                 } else {
-                    for ($i = 0; $i <= 1; $i++) {
+                    for ($i = 0; $i < 12; $i++) {
                         echo "<img src='images/";
                         echo $month + ($i);
                         echo ".jpg '>";
                     }
                 }
+
                 ?>
+
             </div>
         </div>
         <div class="tabMiddle">
@@ -127,7 +170,7 @@
                                     echo "<option selected>";
                                     echo $i;
                                 } else {
-                                    echo "<option value=\"calendar.php?y=$i&m=$month\">";
+                                    echo "<option value=\"?y=$i&m=$month\">";
                                     echo $i;
                                 }
                                 echo "</option>";
@@ -142,10 +185,10 @@
                             <?php
                             for ($i = 1; $i <= 12; $i++) {
                                 if ($i == $month) {
-                                    echo "<option selected value=\"calendar.php?y=$year&m=$i\">";
+                                    echo "<option selected value=\"?y=$year&m=$i\">";
                                     echo $i;
                                 } else {
-                                    echo "<option value=\"calendar.php?y=$year&m=$i\">";
+                                    echo "<option value=\"?y=$year&m=$i\">";
                                     echo $i;
                                 }
                                 echo "</option>";
@@ -160,31 +203,42 @@
             </div>
         </div>
         <div class="tab">
-            <table>
+            <!-- <table> -->
+            <div class="dis">
                 <?php
                 $week = ['日', '一', '二', '三', '四', '五', '六'];
-                echo "<tr>";
+                // echo "<tr>";
                 for ($i = 0; $i < count($week); $i++) {
-                    echo "<td id='firstr'>" . $week[$i] . "</td>";
+                    echo "<div id='firstr'>" . $week[$i] . "</div>";
                 }
-                echo "</tr>";
+                // echo "</tr>";
                 foreach ($cal as $i => $day) {
-                    if ($i % 7 == 0) {
-                        echo "<tr>";
-                    }
+                    // if ($i % 7 == 0) {
+                    //     echo "<tr>";
+                    // }
+                    // if ($cal[$i] == date("j")) {
+                    //     echo "<td id='today'>";
+                    //     echo $day;
+                    //     echo "</td>";
+                    // } else {
+                    //     echo "<td>$day</td>";
+                    // }
+                    // if ($i % 7 == 6) {
+                    //     echo "</tr>";
+                    // }
                     if ($cal[$i] == date("j")) {
-                        echo "<td id='today'>";
+                        echo "<div id='today'>";
                         echo $day;
-                        echo "</td>";
+                        echo "</div>";
                     } else {
-                        echo "<td>$day</td>";
-                    }
-                    if ($i % 7 == 6) {
-                        echo "</tr>";
+                        echo "<div>";
+                        echo $day;
+                        echo "</div>";
                     }
                 }
                 ?>
-            </table>
+            </div>
+            <!-- </table> -->
             <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today"><i>Today : <?= date('Y-m-d') ?></i></a></div>
         </div>
     </div>
@@ -195,7 +249,7 @@
 </body>
 <script>
     var x = 0; //手動用作標
-    const k = 2; //2張圖片
+    const k = 12; //12張圖片
     var banner = $('#img'); //簡化;
     var next = false,
         prev = false;
@@ -221,12 +275,25 @@
 
         };
     });
-
     $('.previmg').click(function() { //往左按一下
-        setTimeout(function() {
-            prev = false;
-            location.href = "?y=<?= $year ?>&m=<?= $prevMonth ?>";
-        }, 20);
+        if (prev == false) {
+            prev = true;
+            // if (x <= -100) { //定位-500%  => -400% => -300% => -200% =>-100%
+            //     x += 100; // -400; -300; -200; -100; 0;
+            // } else {
+            //     banner.css({
+            //         'left': -(k * 100) + '%'
+            //     }); //定位-500%
+            //     x = -(k - 1) * 100; //-400%;
+            // };
+            // banner.animate({
+            //     left: x + '%'
+            // }, 1500, "easeOutBounce");
+            setTimeout(function() {
+                prev = false;
+                location.href = "?y=<?= $year ?>&m=<?= $prevMonth ?>";
+            }, 20);
+        };
     });
 </script>
 
