@@ -55,7 +55,7 @@
     transition: transform 2s 0s ease-out, background 5s, color 5s ;
 }
 .dis div:nth-child(7n),.dis div:nth-child(7n+1){
-    background: linear-gradient(green, #eef,green);  
+    background: linear-gradient(#ce0000, #eef);  
 }
 
 .dis div:hover {
@@ -67,8 +67,8 @@
     transform: rotateY(360deg);
 }
 .dis div:nth-child(7n+1):hover,.dis div:nth-child(7n):hover{
-    background: linear-gradient( #eef,green,#eef);  
-    background:green;
+    background:#ce0000;
+    background: linear-gradient( #ce0000, #eef);  
     color:#33e;
     transform: rotateY(360deg);
     font-weight: bold;
@@ -88,4 +88,8 @@
     background: linear-gradient(#aae, #ccf);
     color: #000;
     font-weight: bold;
+}
+#today {
+    background: linear-gradient(#66f, #eef,#99f);
+    border: 0.2rem solid green;
 }
