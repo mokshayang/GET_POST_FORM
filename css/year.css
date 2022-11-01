@@ -23,8 +23,6 @@ html {
 }
 .tabMiddle,.tab {
     width: 100%;
-    /* min-width: 40rem;
-    min-height: 40rem; */
     height: 2rem;
     margin:  auto;
     border-radius: 20px;
@@ -40,17 +38,7 @@ html {
     box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #33333360;
 }
 
-table {
-    width: 80%;
-    min-height: 25rem;
-    margin: 2rem auto 0.5rem auto;
-    font-size: 2rem;
-    background-color: #ffffff60;
-    border-radius: 1.2rem;
-    font-family: 'Franklin Gothic Medium', sans-serif;
-    text-align: center;
-    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #33333360;
-}
+
 .catlog {
     width: 95%;
     display: grid;
@@ -156,48 +144,13 @@ table {
     box-shadow: -0.1rem -0.1rem 0.1rem 0.1rem #ED170C;
 }
 
-td {
-    border: 0.1rem solid lightblue;
-    border-radius: 1rem;
-    width: 3rem;
-    height: 3rem;
-}
-
-tr:nth-child(1) {
-    font-family: "標楷體";
-    font-weight: bold;
-}
-
-td:hover {
-    cursor: pointer;
-    background: linear-gradient(blue, #eef);
-    color: #fff;
-    font-weight: 800;  
-}
-
-td:nth-child(1),
-td:nth-child(7) {
-    background: #00DB00;
-    border: 0.2rem solid green;
-}
-
 #today {
     background: #cccccc80;
     border: 0.2rem solid green;
     
 }
 
-#firstr {
-    background-color: #eeeeff80;
-    font-family: "標楷體";
-    font-size: 2.4rem;
-}
 
-#firstr:hover {
-    background: linear-gradient(#aae, #ccf);
-    color: #000;
-    font-weight: bold;
-}
 
 select {
     height: 2.8rem;
@@ -281,14 +234,4 @@ footer{
     width: 100%;
     bottom: 0;
 }
-footer div{
-    width: 100%;
-    margin: auto;
-    animation: str 5s steps(32, end)  ;
-    word-break: break-all;
-    overflow: hidden;
-}
-@keyframes str {
-    from { width: 0; }
-    to { width:80%; }
-}
+

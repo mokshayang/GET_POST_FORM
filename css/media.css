@@ -1,21 +1,21 @@
 @media only screen and (max-width: 1680px){
     .container{
-        width:56%;
+        width:45%;
     }
 }
 @media only screen and (max-width: 1520px){
     .container{
-        width:60%;
+        width:46%;
     }
 }
 @media only screen and (max-width: 1400px){
     .container{
-        width:64%;
+        width:52%;
     }
 }
 @media screen and (max-width: 1280px){
     .container{
-        width:75%;
+        width:60%;
     }
     html{
         font-size: 9px;
@@ -23,7 +23,7 @@
 }
 @media screen and (max-width: 1160px){
     .container{
-        width:80%;
+        width:68%;
     }
     html{
         font-size: 9px;
@@ -31,7 +31,7 @@
 }
 @media screen and (max-width: 1024px){
     .container{
-        width:84%;
+        width:80%;
     }
 }
 @media screen and (max-width: 900px){

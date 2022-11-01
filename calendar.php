@@ -6,79 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/year.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/media.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>萬年曆 PH班第二期</title>
     <style>
-        .container {
-            width: 48%;
-            margin: 0 auto;
-            border: 1rem solid #fff;
-            box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #333;
-            min-width: 60rem;
-            background: linear-gradient(green, #ccf, pink, #ccf);
-        }
-
-        .slider {
-            /*設定圖片比列(2:1)*/
-            width: 100%;
-            height: 0;
-            padding-bottom: 47%;
-            position: relative;
-            overflow: hidden;
-            border: 0.3rem double #009393;
-            box-shadow: inset 0.1rem 0.1rem 0.1rem 0.1rem #999;
-        }
-
-        #img {
-            width: 1300%;
-            position: absolute;
-            display: grid;
-            grid-template-columns: repeat(13, 1fr);
-        }
-
-        #img img {
-            width: 100%;
-        }
-
-        .dis {
-            width: 90%;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-auto-rows: 4.2rem;
-            justify-items: center;
-            align-items: center;
-            margin-top: 3rem;
-            margin: 3rem auto 0 auto;
-            /* position: relative; */
-        }
-
-        .dis div {
-            width: 98%;
-            height: 4rem;
-            align-self: center;
+        .yearShow {
+            background-color: #00ee0000;
+            width: 4%;
+            height: 7.8rem;
+            line-height: 2.5rem;
             border: 1px solid #000;
-            line-height: 3.9rem;
+            position: absolute;
+            z-index: 1;
+            font-size: 2rem;
+            font-family: "標楷體";
+            color: #000;
             text-align: center;
-            font-family: 'Franklin Gothic Medium', sans-serif;
+            margin: auto;
+            right: 2%;
+            top: 2%;
+            box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #323;
+            animation: year 1.5s steps(20, end);
+            word-break: break-all;
+            overflow: hidden;
             font-weight: bold;
-            border-radius: 1.2rem;
-            font-size: 2.4rem;
-            background-color: #02e44060;
-            transition: transform 2s 0s ease-out,background 5s ,color 5s  ;
         }
 
-        .dis div:hover {
-            cursor: pointer;
-            background: linear-gradient(blue, #eef);
-            background-color: #66f;
-            color: #fff;
-            font-weight: 800;
-            transform: rotateY(360deg);      
+        @keyframes year {
+            from {
+                height: 0;
+            }
+
+            to {
+                height: 11%;
+            }
         }
     </style>
-    <link rel="stylesheet" href="css/media.css">
 </head>
 
 <body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
@@ -123,16 +89,15 @@
         $cal[] = '';
     }
 
-    // echo "<pre>";
-    // print_r($cal);
-    // echo "</pre>";
-    // echo "第一天 : " . $firstDay . "星期" . $firstDayWeek;
-    // echo "<br>";
-    // echo "該月共" . $monthDays . "天，最後一天是" . $lastDay;
-    // echo "<br>";
-    // echo "月曆天數" . ($monthDays + $spaceDays) . "天，" . $weeks . "周";
+    $a = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+    $b = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+    $Years = [];
+    for ($i = 0; $i < 60; $i++) {
+        $Years[$i] = $a[$i % 10] . $b[$i % 12];
+    }
     ?>
     <div class="container">
+        <div class="yearShow"><?= $Years[($year - 4) % 60] . "年" ?></div>
         <div class="slider">
             <div id="img">
                 <?Php
@@ -151,9 +116,7 @@
                         echo ".jpg '>";
                     }
                 }
-
                 ?>
-
             </div>
         </div>
         <div class="tabMiddle">
@@ -207,25 +170,11 @@
             <div class="dis">
                 <?php
                 $week = ['日', '一', '二', '三', '四', '五', '六'];
-                // echo "<tr>";
                 for ($i = 0; $i < count($week); $i++) {
                     echo "<div id='firstr'>" . $week[$i] . "</div>";
                 }
-                // echo "</tr>";
                 foreach ($cal as $i => $day) {
-                    // if ($i % 7 == 0) {
-                    //     echo "<tr>";
-                    // }
-                    // if ($cal[$i] == date("j")) {
-                    //     echo "<td id='today'>";
-                    //     echo $day;
-                    //     echo "</td>";
-                    // } else {
-                    //     echo "<td>$day</td>";
-                    // }
-                    // if ($i % 7 == 6) {
-                    //     echo "</tr>";
-                    // }
+
                     if ($cal[$i] == date("j")) {
                         echo "<div id='today'>";
                         echo $day;
@@ -238,7 +187,6 @@
                 }
                 ?>
             </div>
-            <!-- </table> -->
             <div><a href="?y=<?= date("Y") ?>&m=<?= date("n") ?>" class="today"><i>Today : <?= date('Y-m-d') ?></i></a></div>
         </div>
     </div>
@@ -278,17 +226,6 @@
     $('.previmg').click(function() { //往左按一下
         if (prev == false) {
             prev = true;
-            // if (x <= -100) { //定位-500%  => -400% => -300% => -200% =>-100%
-            //     x += 100; // -400; -300; -200; -100; 0;
-            // } else {
-            //     banner.css({
-            //         'left': -(k * 100) + '%'
-            //     }); //定位-500%
-            //     x = -(k - 1) * 100; //-400%;
-            // };
-            // banner.animate({
-            //     left: x + '%'
-            // }, 1500, "easeOutBounce");
             setTimeout(function() {
                 prev = false;
                 location.href = "?y=<?= $year ?>&m=<?= $prevMonth ?>";
