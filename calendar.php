@@ -16,19 +16,20 @@
         .yearShow {
             background-color: #00ee0000;
             width: 4%;
-            height: 7.8rem;
+            height: 8rem;
             line-height: 2.5rem;
             border: 1px solid #000;
             position: absolute;
             z-index: 1;
             font-size: 2rem;
             font-family: "標楷體";
-            color: #000;
             text-align: center;
             margin: auto;
             right: 2%;
             top: 2%;
-            box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #323;
+            color:#965A09;
+            text-shadow: 0.1rem 0.1rem 0.1rem #000;
+            box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #333;
             animation: year 1.5s steps(20, end);
             word-break: break-all;
             overflow: hidden;
@@ -43,14 +44,20 @@
             to {
                 height: 11%;
             }
+
+        }
+        #header .fon_c{
+            color: #00f;
         }
     </style>
 </head>
 
 <body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
-    <header id=header>
+    <header id="header">
         <marquee scrollamount=20>
-            ~ 萬 年 曆 作 業 練 習 ~
+            <i class="fa-solid fa-wrench fon_c"></i>
+            　~ 萬 年 曆 作 業 練 習 ~　
+            <i class="fa-solid fa-hammer fon_c"></i>
         </marquee>
     </header>
     <?php
@@ -98,6 +105,7 @@
     ?>
     <div class="container">
         <div class="yearShow"><?= $Years[($year - 4) % 60] . "年" ?></div>
+
         <div class="slider">
             <div id="img">
                 <?Php
@@ -119,56 +127,54 @@
                 ?>
             </div>
         </div>
+
         <div class="tabMiddle">
             <div class="catlog">
-                <div><a href="?y=<?= $prevYear ?>&m=<?= $month ?>" class="leftyear"><?= $year - 1 ?><i class="fa-solid fa-backward arrow"></i></a></div>
+                <div class="ly"><a href="?y=<?= $prevYear ?>&m=<?= $month ?>" class="leftyear"><?= $year - 1 ?><i class="fa-solid fa-backward arrow"></i></a></div>
+                <label class="selyear">
+                    <select name='y' onChange="location = this.value;" title="選擇年份">
+                        <?php
+                        for ($i = date("Y") - 50; $i < date("Y") + 50; $i++) {
+                            if ($i == $year) {
+                                echo "<option selected>";
+                                echo $i;
+                            } else {
+                                echo "<option value=\"?y=$i&m=$month\">";
+                                echo $i;
+                            }
+                            echo "</option>";
+                        }
+                        ?>
+                    </select>
+                    <span>年</span>
+                </label>
+                <div class="ry"><a href="?y=<?= $nextYear ?>&m=<?= $month ?>" class="rightyear"><i class="fa-solid fa-forward arrow"></i><?= $year + 1 ?></a></div>
                 <div class="left previmg" title="上個月">&lt;</div>
-
-                <div class="select">
-                    <label>
-                        <select name='y' onChange="location = this.value;" title="選擇年份">
-                            <?php
-                            for ($i = date("Y") - 50; $i < date("Y") + 50; $i++) {
-                                if ($i == $year) {
-                                    echo "<option selected>";
-                                    echo $i;
-                                } else {
-                                    echo "<option value=\"?y=$i&m=$month\">";
-                                    echo $i;
-                                }
-                                echo "</option>";
+                <label class="selmonth">
+                    <select name="m" onChange="location = this.value;" title="選擇月份">
+                        <?php
+                        for ($i = 1; $i <= 12; $i++) {
+                            if ($i == $month) {
+                                echo "<option selected value=\"?y=$year&m=$i\">";
+                                echo $i;
+                            } else {
+                                echo "<option value=\"?y=$year&m=$i\">";
+                                echo $i;
                             }
-                            ?>
-                        </select>
-                        <span>年</span>
-                    </label>
-
-                    <label>
-                        <select name="m" onChange="location = this.value;" title="選擇月份">
-                            <?php
-                            for ($i = 1; $i <= 12; $i++) {
-                                if ($i == $month) {
-                                    echo "<option selected value=\"?y=$year&m=$i\">";
-                                    echo $i;
-                                } else {
-                                    echo "<option value=\"?y=$year&m=$i\">";
-                                    echo $i;
-                                }
-                                echo "</option>";
-                            }
-                            ?>
-                        </select>
-                        <span>月</span>
-                    </label>
-                </div>
+                            echo "</option>";
+                        }
+                        ?>
+                    </select>
+                    <span>月</span>
+                </label>
                 <div class="right nextimg" title="下個月">&gt;</div>
-                <div><a href="?y=<?= $nextYear ?>&m=<?= $month ?>" class="rightyear"><i class="fa-solid fa-forward arrow"></i><?= $year + 1 ?></a></div>
             </div>
         </div>
         <div class="tab">
             <!-- <table> -->
             <div class="dis">
                 <?php
+                $weekdays=date("D");
                 $week = ['日', '一', '二', '三', '四', '五', '六'];
                 for ($i = 0; $i < count($week); $i++) {
                     echo "<div id='firstr'>" . $week[$i] . "</div>";
@@ -179,9 +185,13 @@
                         echo "<div id='today'>";
                         echo $day;
                         echo "</div>";
+                    } elseif ($cal[$i] != "") {
+                        echo "<div class='day'>";
+                        echo $day;
+                        echo "</div>";
                     } else {
                         echo "<div>";
-                        echo $day;
+                        echo "";
                         echo "</div>";
                     }
                 }
@@ -215,11 +225,11 @@
             };
             banner.animate({
                 left: x + '%'
-            }, 1500, "easeOutBounce");
+            }, 1800, "easeOutBounce");
             setTimeout(function() {
                 next = false;
                 location.href = "?y=<?= $year ?>&m=<?= $nextMonth ?>";
-            }, 1501);
+            }, 1801);
 
         };
     });
